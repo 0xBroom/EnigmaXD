@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EnigmaXD
 {
@@ -11,15 +12,15 @@ namespace EnigmaXD
         private string layout;
         private byte offset;
         private Rotor previous, next;
-        //private Label lbl;
+        private Label lbl;
         private char cIn = '\0', notchPos;
 
-        public Rotor(string layout, char notchPos)
+        public Rotor(string layout, Label lbl, char notchPos)
         {
             this.layout = layout;
             this.previous = previous;
             this.next = next;
-            //this.lbl = lbl;
+            this.lbl = lbl;
             this.notchPos = notchPos;
             offset = 0;
 
@@ -101,7 +102,7 @@ namespace EnigmaXD
             {
                 next.Move();
             }
-            //lbl.Text = "" + ((char)(65 + offset));
+            lbl.Text = "" + ((char)(65 + offset));
         }
 
         public void MoveBack()
@@ -112,7 +113,7 @@ namespace EnigmaXD
             }
             offset--;
 
-            //lbl.Text = "" + ((char)(65 + offset));
+            lbl.Text = "" + ((char)(65 + offset));
         }
 
         public void PutDataIn(char s)
