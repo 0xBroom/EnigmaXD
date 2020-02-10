@@ -14,6 +14,7 @@ namespace EnigmaXD
         [STAThread]
         static void Main()
         {
+            //pene
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
