@@ -18,8 +18,8 @@ namespace EnigmaXD
         public Rotor(string layout, Label lbl, char notchPos)
         {
             this.layout = layout;
-            this.previous = previous;
-            this.next = next;
+            //this.previous = previous;
+            //this.next = next;
             this.lbl = lbl;
             this.notchPos = notchPos;
             offset = 0;
