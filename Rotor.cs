@@ -18,122 +18,96 @@ namespace EnigmaXD
         public Rotor(string layout, Label lbl, char notchPos)
         {
             this.layout = layout;
-            //this.previous = previous;
-            //this.next = next;
             this.lbl = lbl;
             this.notchPos = notchPos;
             offset = 0;
 
         }
 
-        public string GetLayout()
-        {
-            return layout;
-        }
-
-        public void SetNextRotor(Rotor next)
-        {
-            this.next = next;
-        }
-        public void SetPreviousRotor(Rotor previous)
-        {
-            this.previous = previous;
-        }
-
         public char GetInverseCharAt(string ch)
         {
-            int pos = layout.IndexOf(ch);
+            int pos = Layout.IndexOf(ch);
 
-            if (offset > pos)
+            if (Offset > pos)
             {
-                pos = 26 - (offset - pos);
+                pos = 26 - (Offset - pos);
             }
             else
             {
-                pos = pos - offset;
+                pos -= Offset;
             }
 
-            if (previous != null)
+            if (Previous != null)
             {
-                pos = (pos + previous.GetOffset()) % 26;
+                pos = (pos + Previous.Offset) % 26;
             }
 
             return (char)(65 + pos);
         }
 
-        public int GetOffset()
-        {
-            return offset;
-        }
-
-        public char GetNotchPos()
-        {
-            return notchPos;
-        }
-
         public void ResetOffset()
         {
-            offset = 0;
+            Offset = 0;
         }
 
         public bool HasNext()
         {
-            return next != null;
+            return Next != null;
         }
 
         public bool HasPrevious()
         {
-            return previous != null;
+            return Previous != null;
         }
 
         public void Move()
         {
-            if (next == null)
+            if (Next == null)
             {
                 return;
             }
-            offset++;
-            if (offset == 26)
+            Offset++;
+            if (Offset == 26)
             {
-                offset = 0;
+                Offset = 0;
             }
 
-            if (next != null && (offset + 66) == ((notchPos - 64) % 26) + 66)
+            if (Next != null && (Offset + 66) == ((NotchPos - 64) % 26) + 66)
             {
-                next.Move();
+                Next.Move();
             }
-            lbl.Text = "" + ((char)(65 + offset));
+            lbl.Text = "" + ((char)(65 + Offset));
         }
 
         public void MoveBack()
         {
-            if (offset == 0)
+            if (Offset == 0)
             {
-                offset = 26;
+                Offset = 26;
             }
-            offset--;
+            Offset--;
 
-            lbl.Text = "" + ((char)(65 + offset));
+            lbl.Text = "" + ((char)(65 + Offset));
         }
 
         public void PutDataIn(char s)
         {
             cIn = s;
             char c = s;
-            c = (char)(((c - 65) + offset) % 26 + 65);
+            c = (char)(((c - 65) + Offset) % 26 + 65);
 
-            if (next != null)
+            if (Next != null)
             {
-                c = layout.Substring((c - 65), 1).ToCharArray()[0];
-                if ((((c - 65) + (-offset)) % 26 + 65) >= 65)
+                c = Layout.Substring((c - 65), 1).ToCharArray()[0];
+                if ((((c - 65) + (-Offset)) % 26 + 65) >= 65)
                 {
-                    c = (char)(((c - 65) + (-offset)) % 26 + 65);
+                    c = (char)(((c - 65) + (-Offset)) % 26 + 65);
                 }
                 else
                 {
-                    c = (char)(((c - 65) + (26 + (-offset))) % 26 + 65);
+                    c = (char)(((c - 65) + (26 + (-Offset))) % 26 + 65);
                 }
-                next.PutDataIn(c);
+                Next.PutDataIn(c);
 
             }
         }
@@ -142,19 +116,25 @@ namespace EnigmaXD
         {
             char c = '\0';
 
-            if (next != null)
+            if (Next != null)
             {
-                c = next.GetDataOut();
+                c = Next.GetDataOut();
                 c = GetInverseCharAt("" + c);
             }
             else
             { //only in the reflector case
-                c = layout.Substring((cIn - 65), 1).ToCharArray()[0];
-                c = (char)(((c - 65) + previous.offset) % 26 + 65);
+                c = Layout.Substring((cIn - 65), 1).ToCharArray()[0];
+                c = (char)(((c - 65) + Previous.Offset) % 26 + 65);
 
             }
 
             return c;
         }
+
+        public string Layout { get => layout; set => layout = value; }
+        internal Rotor Previous { get => previous; set => previous = value; }
+        internal Rotor Next { get => next; set => next = value; }
+        public byte Offset { get => offset; set => offset = value; }
+        public char NotchPos { get => notchPos; set => notchPos = value; }
     }
 }
