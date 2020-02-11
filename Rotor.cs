@@ -9,6 +9,7 @@ namespace EnigmaXD
 {
     class Rotor
     {
+        //hola
         private string layout;
         private byte offset;
         private Rotor previous, next;
