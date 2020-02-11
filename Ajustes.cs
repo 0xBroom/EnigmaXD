@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EnigmaXD
 {
-    public partial class Form1 : Form
+    public partial class Ajustes : Form
     {
-        public Form1()
+        public Ajustes()
         {
             InitializeComponent();
         }
