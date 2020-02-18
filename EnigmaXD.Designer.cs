@@ -37,8 +37,8 @@
             this.btnRotor2Up = new System.Windows.Forms.Button();
             this.btnRotor3Down = new System.Windows.Forms.Button();
             this.btnRotor3Up = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnDespre = new System.Windows.Forms.Button();
+            this.enc_decBtn = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.txtFinal = new System.Windows.Forms.TextBox();
             this.lblRotor1 = new System.Windows.Forms.Label();
             this.lblRotor2 = new System.Windows.Forms.Label();
@@ -87,6 +87,7 @@
             this.btnRotor1Down.Size = new System.Drawing.Size(58, 53);
             this.btnRotor1Down.TabIndex = 17;
             this.btnRotor1Down.Text = "-";
+            this.btnRotor1Down.Click += new System.EventHandler(this.BtnRotor1Down_Click);
             // 
             // btnRotor2Down
             // 
@@ -96,6 +97,7 @@
             this.btnRotor2Down.Size = new System.Drawing.Size(59, 53);
             this.btnRotor2Down.TabIndex = 16;
             this.btnRotor2Down.Text = "-";
+            this.btnRotor2Down.Click += new System.EventHandler(this.BtnRotor2Down_Click);
             // 
             // btnRotor1Up
             // 
@@ -105,6 +107,7 @@
             this.btnRotor1Up.Size = new System.Drawing.Size(58, 56);
             this.btnRotor1Up.TabIndex = 15;
             this.btnRotor1Up.Text = "+";
+            this.btnRotor1Up.Click += new System.EventHandler(this.BtnRotor1Up_Click);
             // 
             // btnRotor2Up
             // 
@@ -114,6 +117,7 @@
             this.btnRotor2Up.Size = new System.Drawing.Size(59, 56);
             this.btnRotor2Up.TabIndex = 14;
             this.btnRotor2Up.Text = "+";
+            this.btnRotor2Up.Click += new System.EventHandler(this.BtnRotor2Up_Click);
             // 
             // btnRotor3Down
             // 
@@ -123,6 +127,7 @@
             this.btnRotor3Down.Size = new System.Drawing.Size(58, 53);
             this.btnRotor3Down.TabIndex = 13;
             this.btnRotor3Down.Text = "-";
+            this.btnRotor3Down.Click += new System.EventHandler(this.BtnRotor3Down_Click);
             // 
             // btnRotor3Up
             // 
@@ -132,24 +137,27 @@
             this.btnRotor3Up.Size = new System.Drawing.Size(58, 56);
             this.btnRotor3Up.TabIndex = 12;
             this.btnRotor3Up.Text = "+";
+            this.btnRotor3Up.Click += new System.EventHandler(this.BtnRotor3Up_Click);
             // 
-            // button1
+            // enc_decBtn
             // 
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(280, 108);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 32);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Encriptar/Desencriptar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.enc_decBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.enc_decBtn.Location = new System.Drawing.Point(280, 108);
+            this.enc_decBtn.Name = "enc_decBtn";
+            this.enc_decBtn.Size = new System.Drawing.Size(164, 32);
+            this.enc_decBtn.TabIndex = 20;
+            this.enc_decBtn.Text = "Encriptar/Desencriptar";
+            this.enc_decBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.enc_decBtn.Click += new System.EventHandler(this.Enc_decBtn_Click);
             // 
-            // btnDespre
+            // btnAbout
             // 
-            this.btnDespre.Location = new System.Drawing.Point(91, 108);
-            this.btnDespre.Name = "btnDespre";
-            this.btnDespre.Size = new System.Drawing.Size(69, 32);
-            this.btnDespre.TabIndex = 18;
-            this.btnDespre.Text = "Créditos";
+            this.btnAbout.Location = new System.Drawing.Point(91, 108);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(69, 32);
+            this.btnAbout.TabIndex = 18;
+            this.btnAbout.Text = "Créditos";
+            this.btnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
             // 
             // txtFinal
             // 
@@ -220,6 +228,7 @@
             this.btnSettings.Size = new System.Drawing.Size(73, 32);
             this.btnSettings.TabIndex = 19;
             this.btnSettings.Text = "Ajustes";
+            this.btnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
             // 
             // txtInit
             // 
@@ -234,14 +243,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 257);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnDespre);
+            this.Controls.Add(this.enc_decBtn);
+            this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.txtFinal);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.txtInit);
             this.Name = "EnigmaXD";
             this.Text = "EnigmaXD";
+            this.Load += new System.EventHandler(this.EnigmaXD_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -259,8 +269,8 @@
         private System.Windows.Forms.Button btnRotor2Up;
         private System.Windows.Forms.Button btnRotor3Down;
         private System.Windows.Forms.Button btnRotor3Up;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnDespre;
+        private System.Windows.Forms.Button enc_decBtn;
+        private System.Windows.Forms.Button btnAbout;
         private System.Windows.Forms.TextBox txtFinal;
         private System.Windows.Forms.Label lblRotor1;
         private System.Windows.Forms.Label lblRotor2;
