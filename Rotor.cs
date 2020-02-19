@@ -9,18 +9,21 @@ namespace EnigmaXD
 {
     class Rotor
     {
-        private string layout;
-        private byte offset;
-        private Rotor previous, next;
         private Label lbl;
-        private char cIn = '\0', notchPos;
+
+        private char cIn = '\0';
+        public string Layout { get; set; }
+        internal Rotor Previous { get; set; }
+        internal Rotor Next { get; set; }
+        public byte Offset { get; set; }
+        public char NotchPos { get; set; }
 
         public Rotor(string layout, Label lbl, char notchPos)
         {
-            this.layout = layout;
+            Layout = layout;
             this.lbl = lbl;
-            this.notchPos = notchPos;
-            offset = 0;
+            NotchPos = notchPos;
+            Offset = 0;
 
         }
 
@@ -131,10 +134,5 @@ namespace EnigmaXD
             return c;
         }
 
-        public string Layout { get => layout; set => layout = value; }
-        internal Rotor Previous { get => previous; set => previous = value; }
-        internal Rotor Next { get => next; set => next = value; }
-        public byte Offset { get => offset; set => offset = value; }
-        public char NotchPos { get => notchPos; set => notchPos = value; }
     }
 }
