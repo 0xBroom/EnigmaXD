@@ -154,7 +154,7 @@
             // 
             this.btnAbout.Location = new System.Drawing.Point(91, 108);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(69, 32);
+            this.btnAbout.Size = new System.Drawing.Size(81, 32);
             this.btnAbout.TabIndex = 18;
             this.btnAbout.Text = "Créditos";
             this.btnAbout.Click += new System.EventHandler(this.BtnAbout_Click);

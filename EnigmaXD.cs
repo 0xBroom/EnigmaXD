@@ -51,7 +51,8 @@ namespace EnigmaXD
         /// <param name="e"></param>
         private void BtnAbout_Click(object sender, EventArgs e)
         {
-            //Abrir about.
+            About about = new About();
+            about.Show();
         }
 
         /// <summary>

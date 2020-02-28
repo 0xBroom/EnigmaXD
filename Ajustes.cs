@@ -58,10 +58,6 @@ namespace EnigmaXD
             {
                 lstAvailableRotors.Items.Add(al1[i]);
             }
-            /*ttSelect.SetToolTip(btnSelect, "Selecteaza rotorul");
-            ttDeselect.SetToolTip(btnDeselect, "Deselecteaza rotorul");
-            ttUp.SetToolTip(btnUp, "Muta rotorul in sus");
-            ttDown.SetToolTip(btnDown, "Muta rotorul in jos");*/
 
             for (int i = 0; i < al2.Count; i++)
             {
@@ -115,7 +111,7 @@ namespace EnigmaXD
         {
             if (lstAvailableRotors.SelectedIndex < 0)
             {
-                MessageBox.Show(this, "Selecteaza un rotor prima data!", "Atentie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "¡Seleccione un rotor primero!", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             lstSelectedRotors.Items.Add(lstAvailableRotors.SelectedItem);
@@ -127,7 +123,7 @@ namespace EnigmaXD
         {
             if (lstSelectedRotors.SelectedIndex < 0)
             {
-                MessageBox.Show(this, "Selecteaza un rotor prima data!", "Atentie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "¡Seleccione un rotor primero!", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             lstAvailableRotors.Items.Add(lstSelectedRotors.SelectedItem);
@@ -164,7 +160,7 @@ namespace EnigmaXD
         {
             if (lstSelectedRotors.Items.Count != 3)
             {
-                MessageBox.Show(this, "Trebuie sa alegeti exact trei rotoare!", "Atentie!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "¡Debes elegir exactamente tres rotores!", "¡Atención!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
