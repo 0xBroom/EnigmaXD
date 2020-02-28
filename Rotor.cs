@@ -73,12 +73,9 @@ namespace EnigmaXD
             if (Offset == 26)
             {
                 Offset = 0;
-            }
-
-            if (Next != null && (Offset + 66) == ((NotchPos - 64) % 26) + 66)
-            {
                 Next.Move();
             }
+
             lbl.Text = "" + ((char)(65 + Offset));
         }
 

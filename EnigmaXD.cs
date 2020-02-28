@@ -61,7 +61,8 @@ namespace EnigmaXD
         /// <param name="e"></param>
         private void BtnSettings_Click(object sender, EventArgs e)
         {
-
+            Ajustes ajustes = new Ajustes(this);
+            ajustes.Show();
         }
 
         /// <summary>
@@ -190,6 +191,38 @@ namespace EnigmaXD
         public string GetLeftRotor()
         {
             return rl.Layout;
+        }
+
+        public void ChangeRotors(string rot1, string rotName1, char rotNotch1,
+                                 string rot2, string rotName2, char rotNotch2,
+                                 string rot3, string rotName3, char rotNotch3)
+        {
+            lblRotorS.Text = rotName1;
+            lblRotorM.Text = rotName2;
+            lblRotorD.Text = rotName3;
+            rr = null;
+            rm = null;
+            rl = null;
+
+            rr = new Rotor(rot3, lblRotor1, rotNotch3);
+            rm = new Rotor(rot2, lblRotor2, rotNotch2);
+            rl = new Rotor(rot1, lblRotor3, rotNotch1);
+
+            rr.ResetOffset();
+            rm.ResetOffset();
+            rl.ResetOffset();
+
+            rr.Next = rm;
+            rm.Next = rl;
+            rl.Next = reflector;
+
+            rm.Previous = rr;
+            rl.Previous = rm;
+            reflector.Previous = rl;
+
+            lblRotor1.Text = "A";
+            lblRotor2.Text = "A";
+            lblRotor3.Text = "A";
         }
     }
 }

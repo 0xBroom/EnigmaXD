@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbReflector = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblRotorStructure = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,32 +44,13 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cmbReflector
-            // 
-            this.cmbReflector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbReflector.Items.AddRange(new object[] {
-            "Reflector B = YRUHQSLDPXNGOKMIEBFZCWVJAT",
-            "Reflector C = FVPJIAOYEDRZXWGCTKUQSBNMHL"});
-            this.cmbReflector.Location = new System.Drawing.Point(12, 264);
-            this.cmbReflector.Name = "cmbReflector";
-            this.cmbReflector.Size = new System.Drawing.Size(312, 24);
-            this.cmbReflector.TabIndex = 27;
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(12, 247);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 15);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Reflector";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblRotorStructure);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 173);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 69);
+            this.groupBox1.Size = new System.Drawing.Size(312, 101);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rotor layout";
@@ -80,9 +59,9 @@
             // 
             this.lblRotorStructure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblRotorStructure.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-            this.lblRotorStructure.Location = new System.Drawing.Point(8, 39);
+            this.lblRotorStructure.Location = new System.Drawing.Point(8, 57);
             this.lblRotorStructure.Name = "lblRotorStructure";
-            this.lblRotorStructure.Size = new System.Drawing.Size(296, 21);
+            this.lblRotorStructure.Size = new System.Drawing.Size(296, 37);
             this.lblRotorStructure.TabIndex = 9;
             this.lblRotorStructure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -92,7 +71,7 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
             this.label1.Location = new System.Drawing.Point(8, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 22);
+            this.label1.Size = new System.Drawing.Size(296, 37);
             this.label1.TabIndex = 8;
             this.label1.Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -116,22 +95,24 @@
             // btnCancel
             // 
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(172, 294);
+            this.btnCancel.Location = new System.Drawing.Point(174, 280);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 29);
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // btnOk
             // 
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(252, 294);
+            this.btnOk.Location = new System.Drawing.Point(254, 280);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 29);
             this.btnOk.TabIndex = 21;
             this.btnOk.Text = "Ok";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
             // 
             // lstSelectedRotors
             // 
@@ -143,31 +124,43 @@
             // 
             // btnDown
             // 
-            this.btnDown.Location = new System.Drawing.Point(148, 138);
+            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDown.Location = new System.Drawing.Point(143, 132);
             this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(40, 29);
+            this.btnDown.Size = new System.Drawing.Size(50, 33);
             this.btnDown.TabIndex = 19;
+            this.btnDown.Text = "⬇";
+            this.btnDown.Click += new System.EventHandler(this.BtnDown_Click);
             // 
             // btnUp
             // 
-            this.btnUp.Location = new System.Drawing.Point(148, 100);
+            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUp.Location = new System.Drawing.Point(143, 92);
             this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(40, 30);
+            this.btnUp.Size = new System.Drawing.Size(50, 34);
             this.btnUp.TabIndex = 18;
+            this.btnUp.Text = "⬆";
+            this.btnUp.Click += new System.EventHandler(this.BtnUp_Click);
             // 
             // btnDeselect
             // 
-            this.btnDeselect.Location = new System.Drawing.Point(148, 63);
+            this.btnDeselect.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeselect.Location = new System.Drawing.Point(143, 48);
             this.btnDeselect.Name = "btnDeselect";
-            this.btnDeselect.Size = new System.Drawing.Size(40, 30);
+            this.btnDeselect.Size = new System.Drawing.Size(50, 38);
             this.btnDeselect.TabIndex = 17;
+            this.btnDeselect.Text = "⬅";
+            this.btnDeselect.Click += new System.EventHandler(this.BtnDeselect_Click);
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(148, 26);
+            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelect.Location = new System.Drawing.Point(143, 5);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(40, 30);
+            this.btnSelect.Size = new System.Drawing.Size(50, 37);
             this.btnSelect.TabIndex = 16;
+            this.btnSelect.Text = "➡";
+            this.btnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // lstAvailableRotors
             // 
@@ -182,14 +175,13 @@
             this.lstAvailableRotors.Name = "lstAvailableRotors";
             this.lstAvailableRotors.Size = new System.Drawing.Size(120, 132);
             this.lstAvailableRotors.TabIndex = 15;
+            this.lstAvailableRotors.SelectedIndexChanged += new System.EventHandler(this.LstAvailableRotors_SelectedIndexChanged);
             // 
             // Ajustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 336);
-            this.Controls.Add(this.cmbReflector);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(337, 326);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -203,15 +195,13 @@
             this.Controls.Add(this.lstAvailableRotors);
             this.Name = "Ajustes";
             this.Text = "Ajustes";
+            this.Load += new System.EventHandler(this.Ajustes_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cmbReflector;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblRotorStructure;
         private System.Windows.Forms.Label label1;
